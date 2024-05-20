@@ -6,6 +6,39 @@ class Program
     {
         // Here is your empty program!
         Console.WriteLine("Hello world!");
+
+        Animal animal = new Animal("animal",0);
+
+        Console.WriteLine($"{animal.GetState()} is of size {animal.GetSize()}");
+
+        while (animal.GetState().Equals(animal.GetState().ToLower(), StringComparison.Ordinal)) {
+            animal.Feed();
+            Console.WriteLine(animal.GetState());
+        }
+    }
+}
+
+class Animal {
+    private string state;
+    private int size;
+    public Animal (string s, int n) {
+        state = s;
+        size = n;
+    }
+
+    public void Feed() {
+        size++;
+        if (size >= 5) {
+            state = state.ToUpper();
+        }
+    }
+
+    public string GetState() {
+        return state;
+    }
+
+    public int GetSize() {
+        return size;
     }
 }
 
